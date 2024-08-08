@@ -1,0 +1,143 @@
+{% extends 'components/layouts/default.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<template>
+    
+    <div class="" x-data="form">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Simple Tabs -->
+            <div class="panel">
+                <div class="flex items-center justify-between mb-5">
+                    <h5 class="font-semibold text-lg dark:text-white-light">Simple Tabs</h5>
+                    <a class="font-semibold hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-600" href="javascript:;" @click="toggleCode('code1')">
+                        <span class="flex items-center">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ltr:mr-2 rtl:ml-2">
+                                <path d="M17 7.82959L18.6965 9.35641C20.239 10.7447 21.0103 11.4389 21.0103 12.3296C21.0103 13.2203 20.239 13.9145 18.6965 15.3028L17 16.8296" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path opacity="0.5" d="M13.9868 5L10.0132 19.8297" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                                <path d="M7.00005 7.82959L5.30358 9.35641C3.76102 10.7447 2.98975 11.4389 2.98975 12.3296C2.98975 13.2203 3.76102 13.9145 5.30358 15.3028L7.00005 16.8296" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            Code
+                        </span>
+                    </a>
+                </div>
+                <div class="mb-5" x-data="{ tab: 'home' }">
+                    <div>
+                        <ul class="flex flex-wrap mt-3 border-b border-white-light dark:border-[#191e3a]">
+                            <li>
+                                <a href="javascript:;" class="p-3.5 py-2 -mb-[1px] block border border-transparent hover:text-primary dark:hover:border-b-black" :class="{
+                                            '!border-white-light !border-b-white  text-primary dark:!border-[#191e3a] dark:!border-b-black': tab ===
+                                                'home'
+                                        }" @click="tab = 'home'">Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="p-3.5 py-2 -mb-[1px] block border border-transparent hover:text-primary dark:hover:border-[#191e3a] dark:hover:border-b-black" :class="{
+                                            '!border-white-light !border-b-white text-primary dark:!border-[#191e3a] dark:!border-b-black': tab ===
+                                                'profile'
+                                        }" @click="tab = 'profile'">Profile</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="p-3.5 py-2 -mb-[1px] block border border-transparent hover:text-primary dark:hover:border-[#191e3a] dark:hover:border-b-black" :class="{
+                                            '!border-white-light !border-b-white text-primary dark:!border-[#191e3a] dark:!border-b-black': tab ===
+                                                'contact'
+                                        }" @click="tab = 'contact'">Contact</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="p-3.5 py-2 -mb-[1px] block pointer-events-none text-white-light dark:text-dark">Disabled</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-5 flex-1 text-sm">
+                        <template x-if="tab === 'home'">
+                            <div class="active">
+                                <h4 class="font-semibold text-2xl mb-4">We move your world!</h4>
+                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </template>
+                        <template x-if="tab === 'profile'">
+                            <div>
+                                <div class="flex items-start">
+                                    <div class="w-20 h-20 ltr:mr-4 rtl:ml-4 flex-none">
+                                        <img src="{% static 'assets/images/profile-34.jpeg' %}" alt="image" class="w-20 h-20 m-0 rounded-full ring-2 ring-[#ebedf2] dark:ring-white-dark object-cover" />
+                                    </div>
+                                    <div class="flex-auto">
+                                        <h5 class="text-xl font-medium mb-4">Media heading</h5>
+                                        <p class="text-white-dark">Cras sit amet nibh libero, in gravida nulla.
+                                            Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
+                                            vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
+                                            nunc ac nisi vulputate fringilla. Donec lacinia congue felis in
+                                            faucibus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template x-if="tab === 'contact'">
+                            <div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </template>
+                        <template x-if="tab === 'disabled'">
+                            <div>Disabled</div>
+                        </template>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+           
+</template>
+
+<!-- start hightlight js -->
+<link rel="stylesheet" href="{% static 'assets/css/highlight.min.css' %}">
+<script src="{% static 'assets/js/highlight.min.js' %}"></script>
+<!-- end hightlight js -->
+
+<script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("form", () => ({
+
+            // highlightjs
+            codeArr: [],
+            toggleCode(name) {
+                if (this.codeArr.includes(name)) {
+                    this.codeArr = this.codeArr.filter((d) => d != name);
+                } else {
+                    this.codeArr.push(name);
+
+                    setTimeout(() => {
+                        document.querySelectorAll('pre.code').forEach(el => {
+                            hljs.highlightElement(el);
+                        });
+                    });
+                }
+            },
+        }));
+    });
+</script>
+
+
+
+
+
+
+
+{% endblock %}
